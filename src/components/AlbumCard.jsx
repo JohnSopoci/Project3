@@ -1,35 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AlbumCard = ({ Album, onAddToCart }) => {
+const AlbumCard = ({ album, onAddToCart }) => {
   // sanity check: make sure that Album to display is not broken
-  if (!Album) return null;
+  if (!album) return null;
 
   return (
-    <article className="Album-card">
-      <Link className="Album-img-link" to={`/Album/${Album.id}`}>
+    <article className="album-card">
+      <Link className="album-img-link" to={`/album/${album.id}`}>
         <img
-          className="Album-image"
-          src={Album.image}
-          alt={Album.name}
+          className="album-image"
+          src={album.image}
+          alt={album.title}
           loading="lazy"
         />
       </Link>
-      <div className="Album-body">
-        <span className="Album-category">{Album.category}</span>
-        <h3 className="Album-title">
-          <Link to={`/Album/${Album.id}`}>{Album.name}</Link>
+      <div className="album-body">
+        <span className="album-genre">{album.genre}</span>
+        <h3 className="album-title">
+          <Link to={`/album/${album.id}`}>{album.title}</Link>
         </h3>
-        <p className="Album-price">
+        <p className="album-price">
           $
-          {typeof Album.price === "number"
-            ? Album.price.toFixed(2)
+          {typeof album.price === "number"
+            ? album.price.toFixed(2)
             : "Contact For Price"}
         </p>
         <button
           className="btn btn-secondary btn-block"
           type="button"
-          onClick={() => onAddToCart(Album)}
+          onClick={() => onAddToCart(album)}
         >
           Add to Cart
         </button>

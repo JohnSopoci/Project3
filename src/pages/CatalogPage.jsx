@@ -12,15 +12,13 @@ function CatalogPage({ albums, onAddToCart }) {
   const filteredAlbums =
     selectedCategory === "All"
       ? validAlbums
-      : validAlbums.filter((p) => p.category === selectedCategory);
+      : validAlbums.filter((a) => a.category === selectedCategory);
 
   return (
     <div className="catalog-container">
       <header className="catalog-hero">
-        <h1>Handcrafted Functional Stoneware</h1>
-        <p>
-          Sustainable ceramics shaped by hand for intentional daily rituals.
-        </p>
+        <h1>Album Store</h1>
+        <p>Discover your next favorite album.</p>
       </header>
 
       {/**this is how to comment INSIDE THE RETURN stmnt */}
@@ -36,9 +34,9 @@ function CatalogPage({ albums, onAddToCart }) {
         })}
       </div>
 
-      <div className="Album-grid">
-        {filteredAlbums.map((albums) => (
-          <AlbumCard key={albums.id} Album={albums} onAddToCart={onAddToCart} />
+      <div className="album-grid">
+        {filteredAlbums.map((album) => (
+          <AlbumCard key={album.id} album={album} onAddToCart={onAddToCart} />
         ))}
       </div>
     </div>
